@@ -50,13 +50,14 @@ const y = canvas.height / 2;
 
 // Players call
 const player = new Player(x, y, 30, "blue");
-player.draw();
 
 const projectiles = [];
 
 // loop for shotting projectiles from center
 function animate() {
   requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height); //to draw particles instead of lines
+  player.draw();
   projectiles.forEach((projectile) => {
     projectile.update();
   });
